@@ -40,16 +40,8 @@ class MoneyEntry extends Component {
     this.state = {date: '', item: '', amount: '', payingIn: true}
   }
 
-  onChangeDate(event) {
-    this.setState({date: event.target.value})
-  }
-
-  onChangeItem(event) {
-    this.setState({item: event.target.value})
-  }
-
-  onChangeAmount(event) {
-    this.setState({amount: event.target.value})
+  onChangeValue(event) {
+    this.setState({[event.target.name] : event.target.value})
   }
 
   onChangePayingin(event) {
@@ -70,9 +62,9 @@ class MoneyEntry extends Component {
             <input type="radio" value="on" checked={this.state.payingIn} onChange={(event) => this.onChangePayingin(event)} /> 入金
             <input type="radio" value="off" checked={!this.state.payingIn} onChange={(event) => this.onChangePayingin(event)} /> 出金
           </div>
-          <div>日付: <input type="text" value={this.state.date} onChange={(event) => this.onChangeDate(event)} placeholder="3/15" /></div>
-          <div>項目: <input type="text" value={this.state.item} onChange={(event) => this.onChangeItem(event)} placeholder="お小遣い" /></div>
-          <div>金額: <input type="text" value={this.state.amount} onChange={(event) => this.onChangeAmount(event)} placeholder="1000" /></div>
+          <div>日付: <input type="text" value={this.state.date} name="date" onChange={(e) => this.onChangeValue(e)} placeholder="3/15" /></div>
+          <div>項目: <input type="text" value={this.state.item} name="item" onChange={(e) => this.onChangeValue(e)} placeholder="お小遣い" /></div>
+          <div>金額: <input type="text" value={this.state.amount} name="amount" onChange={(e) => this.onChangeValue(e)} placeholder="1000" /></div>
           <div><input type="submit" value="追加" onClick={() => this.onClickSubmit()} /></div>
         </fieldset>
       </div>
