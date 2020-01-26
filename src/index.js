@@ -40,8 +40,6 @@ class MoneyEntry extends Component {
     this.state = {date: '', item: '', amount: '', payingIn: true}
   }
 
-  onChange
-
   onChangeDate(event) {
     this.setState({date: event.target.value})
   }
